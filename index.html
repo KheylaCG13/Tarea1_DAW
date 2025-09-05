@@ -1,189 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio — Kheyla Condor G.</title>
-  <meta name="description" content="Portafolio / carta de presentación minimalista de Kheyla Condor G." />
-  <meta property="og:title" content="Portafolio — Kheyla Condor G." />
-  <meta property="og:description" content="Portafolio minimalista, proyectos y contacto de Kheyla Condor G." />
-  <meta name="color-scheme" content="light dark" />
-  <style>
-    :root{
-      --bg: #ffffff;
-      --fg: #3d0c57; /* morado profundo */
-      --muted: #7e4a8e; /* lavanda suave */
-      --accent: #ec4899; /* rosa vibrante */
-      --accent-light: #fbcfe8; /* rosa claro */
-      --card: #fdf2f8; /* fondo rosado muy claro */
-      --border: #f5d0fe; /* borde lila claro */
-      --radius: 16px;
-      --space: clamp(16px, 2.5vw, 28px);
-      --maxw: 980px;
-    }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg: #2a1038;
-        --fg: #fce7f3; /* texto claro */
-        --muted: #f9a8d4; /* rosa medio */
-        --accent: #e879f9; /* fucsia */
-        --accent-light: #d8b4fe; /* lila */
-        --card: #3b0a45; /* fondo oscuro púrpura */
-        --border: #a855f7; /* violeta */
-      }
-    }
-    *, *::before, *::after{ box-sizing: border-box; }
-    html, body{ height:100%; }
-    body{
-      margin:0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      background: var(--bg); color: var(--fg); 
-      display:flex; flex-direction:column; 
-    }
-    a{ color: var(--accent); text-decoration: none; }
-    a:hover{ text-decoration: underline; }
-
-    .wrap{ width:100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--space); }
-    header{ position: sticky; top:0; backdrop-filter: saturate(1.2) blur(6px); background: color-mix(in srgb, var(--bg) 90%, transparent); border-bottom: 1px solid var(--border); }
-    nav{ display:flex; align-items:center; justify-content: space-between; height: 64px; }
-    nav .links{ display:flex; gap: 16px; }
-    nav a{ color: inherit; opacity:.9; font-weight:500; }
-    nav a:hover{ color: var(--accent); }
-    nav a:focus-visible{ outline: 2px solid var(--accent); border-radius: 8px; }
-
-    .hero{ padding: calc(var(--space)*2) 0; }
-    .hero-grid{ display:grid; grid-template-columns: 1fr; gap: var(--space); align-items:center; }
-    @media (min-width: 780px){ .hero-grid{ grid-template-columns: 1.3fr .9fr; } }
-
-    .badge{ display:inline-flex; gap:8px; align-items:center; background: var(--accent-light); border:1px solid var(--border); padding: 6px 10px; border-radius: 999px; font-size: 14px; color: var(--fg); font-weight:500; }
-    .title{ font-size: clamp(28px, 5vw, 44px); line-height: 1.15; margin: 10px 0; }
-    .subtitle{ color: var(--muted); font-size: clamp(16px, 2.2vw, 18px); margin: 6px 0 0; }
-    .cta{ display:flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding: 10px 14px; border-radius: 12px; border:1px solid var(--border); background: var(--accent); color: #fff; font-weight:600; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    .btn.secondary{ background: var(--card); color: var(--fg); border:1px solid var(--border); }
-    .btn:focus-visible{ outline: 3px solid color-mix(in srgb, var(--accent) 60%, transparent); }
-
-    .avatar{ width: 160px; height:160px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-light), var(--card)); border: 2px solid var(--border); display:grid; place-items:center; font-weight:700; font-size:48px; color: var(--fg); margin: 0 auto; }
-
-    section{ padding: calc(var(--space)*1.6) 0; border-top: 1px solid var(--border); }
-    h2{ font-size: 22px; margin: 0 0 8px; color: var(--fg); }
-    p{ margin: 0 0 12px; }
-
-    .cards{ display:grid; gap: var(--space); grid-template-columns: 1fr; }
-    @media (min-width: 800px){ .cards{ grid-template-columns: repeat(3, 1fr); } }
-    .card{ background: var(--card); border:1px solid var(--border); padding: 16px; border-radius: var(--radius); transition: transform 0.2s ease; }
-    .card:hover{ transform: translateY(-4px); }
-    .card h3{ margin: 0 0 6px; font-size: 18px; color: var(--fg); }
-    .card small{ color: var(--muted); }
-
-    .list{ display:grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-    .chip{ border:1px solid var(--border); background: var(--accent-light); padding: 8px 10px; border-radius: 999px; font-size: 14px; text-align:center; color: var(--fg); font-weight:500; }
-
-    .projects .card a{ display:inline-block; margin-top: 10px; color: var(--accent); }
-
-    footer{ border-top: 1px solid var(--border); padding: 20px 0 40px; color: var(--muted); font-size: 14px; text-align:center; }
-    .social{ display:flex; gap:12px; justify-content:center; margin-top:10px; }
-  </style>
+  <meta name="description" content="Portafolio minimalista de Kheyla Condor G., estudiante de Ingeniería de Software y desarrolladora web en formación." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <div class="wrap">
-      <nav aria-label="Principal">
-        <a href="#inicio" style="font-weight:700">Kheyla Condor G.</a>
-        <div class="links">
-          <a href="#sobre-mi">Sobre mí</a>
-          <a href="#habilidades">Habilidades</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#contacto">Contacto</a>
-        </div>
-      </nav>
-    </div>
+    <nav>
+      <h1>Kheyla Condor G.</h1>
+      <button id="menu-toggle" aria-label="Abrir menú">☰</button>
+      <ul id="menu">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main id="inicio" class="wrap">
-    <section class="hero" aria-labelledby="presentacion">
-      <div class="hero-grid">
-        <div>
-          <span class="badge">Disponible para proyectos</span>
-          <h1 id="presentacion" class="title">Hola, soy Kheyla Condor G. — Estudiante de Ingeniería de Software</h1>
-          <p class="subtitle">Desarrolladora web en formación, apasionada por el diseño de interfaces limpias y el desarrollo de aplicaciones útiles para la vida cotidiana.</p>
-
-          <div class="cta">
-            <a class="btn" href="#contacto">Hablemos</a>
-            <a class="btn secondary" href="#proyectos">Ver proyectos</a>
-          </div>
-        </div>
-        <div>
-          <div class="avatar" aria-hidden="true">K</div>
-        </div>
-      </div>
-    </section>
-
+  <main>
     <section id="sobre-mi">
       <h2>Sobre mí</h2>
-      <p>Soy estudiante de Ingeniería de Software con enfoque en el desarrollo web y móvil. Me motiva crear soluciones digitales accesibles y eficientes que impacten positivamente a las personas.</p>
-      <p>He trabajado en proyectos académicos y presentaciones en empresas como NTT Data, donde desarrollé aplicaciones innovadoras con enfoque práctico. Me interesa el diseño de experiencias de usuario, la accesibilidad y la integración con servicios en la nube.</p>
+      <p>Estudiante de Ingeniería de Software y desarrolladora web en formación. Me apasiona crear soluciones digitales accesibles, limpias y con impacto positivo en la vida cotidiana.</p>
+      <p>Busco fortalecer mi experiencia en proyectos de desarrollo web y móvil, con la meta de integrarme a equipos innovadores en tecnología.</p>
     </section>
 
     <section id="habilidades">
-      <h2>Habilidades</h2>
-      <div class="list">
-        <div class="chip">HTML semántico</div>
-        <div class="chip">CSS (Grid/Flexbox)</div>
-        <div class="chip">JavaScript</div>
-        <div class="chip">Firebase</div>
-        <div class="chip">Git & GitHub</div>
-        <div class="chip">Figma → Código</div>
-        <div class="chip">Trabajo en equipo</div>
-        <div class="chip">Metodologías ágiles</div>
+      <h2>Tecnologías de interés</h2>
+      <div class="chips">
+        <span class="chip">HTML</span>
+        <span class="chip">CSS</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Firebase</span>
+        <span class="chip">Git/GitHub</span>
+        <span class="chip">Figma</span>
+        <span class="chip">Flutter</span>
+        <span class="chip">UX/UI</span>
       </div>
     </section>
 
-    <section id="proyectos" class="projects">
+    <section id="proyectos">
       <h2>Proyectos destacados</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Ají Causa — Asistente de Cocina Personal</h3>
-          <p>Aplicación tipo recetario inteligente desarrollada como proyecto final de Desarrollo de Aplicaciones Móviles, presentada en NTT Data. Ayuda a los usuarios a organizar recetas y aprender a cocinar paso a paso.</p>
-          <small>Flutter • Firebase • UX/UI</small><br />
-          <a href="#">Ver detalles</a>
-        </article>
-        <article class="card">
-          <h3>Interfaz de alertas</h3>
-          <p>Panel para recibir notificaciones, ubicar al emisor y contactar autoridades rápidamente.</p>
-          <small>HTML • CSS • JS</small><br />
-          <a href="#">Ver demo</a>
-        </article>
-        <article class="card">
-          <h3>Formulario médico</h3>
-          <p>Formulario web accesible para datos de emergencia con generación de enlace único.</p>
-          <small>HTML • CSS • Firebase</small><br />
-          <a href="#">Ver demo</a>
-        </article>
-      </div>
+      <article>
+        <h3>Ají Causa — Asistente de Cocina Personal</h3>
+        <p>Aplicación de recetario inteligente presentada en NTT Data como proyecto final de Desarrollo de Aplicaciones Móviles.</p>
+        <a href="#" target="_blank">Ver repositorio</a>
+      </article>
+      <article>
+        <h3>Formulario médico web</h3>
+        <p>Sistema accesible para registrar datos de emergencia y generar enlaces únicos para compartir.</p>
+        <a href="#" target="_blank">Ver demo</a>
+      </article>
+    </section>
+
+    <section id="intereses">
+      <h2>Intereses y hobbies</h2>
+      <p>Me interesa la innovación educativa y la accesibilidad tecnológica. Disfruto diseñar interfaces, aprender nuevas herramientas y explorar la fotografía en mis tiempos libres.</p>
     </section>
 
     <section id="contacto">
       <h2>Contacto</h2>
-      <p>¿Tienes una idea o proyecto? Conversemos.</p>
-      <p>
-        <a class="btn" href="mailto:kheylacg123@gmail.com">Enviar correo</a>
-        <a class="btn secondary" href="./CV_Kheyla.pdf" download>Descargar CV</a>
-      </p>
-      <div class="social">
-        <a href="https://github.com/KheylaCG13">GitHub</a>
-        <a href="https://www.linkedin.com/in/kheyla-condor-741226298/">LinkedIn</a>
-      </div>
+      <p>📧 <a href="mailto:kheylacg123@gmail.com">kheylacg123@gmail.com</a></p>
+      <p>💼 <a href="https://www.linkedin.com/in/kheyla-condor-741226298/" target="_blank">LinkedIn</a></p>
+      <p>💻 <a href="https://github.com/KheylaCG13" target="_blank">GitHub</a></p>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">
-      <span>© <span id="y"></span> Kheyla Condor G. — Hecho con amor en HTML + CSS.</span>
-    </div>
+    <p>© <span id="year"></span> Kheyla Condor G. — Portafolio personal</p>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
+
