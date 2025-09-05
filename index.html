@@ -11,23 +11,25 @@
   <style>
     :root{
       --bg: #ffffff;
-      --fg: #0f172a; /* slate-900 */
-      --muted: #475569; /* slate-600 */
-      --accent: #0ea5e9; /* sky-500 */
-      --card: #f8fafc; /* slate-50 */
-      --border: #e2e8f0; /* slate-200 */
+      --fg: #3d0c57; /* morado profundo */
+      --muted: #7e4a8e; /* lavanda suave */
+      --accent: #ec4899; /* rosa vibrante */
+      --accent-light: #fbcfe8; /* rosa claro */
+      --card: #fdf2f8; /* fondo rosado muy claro */
+      --border: #f5d0fe; /* borde lila claro */
       --radius: 16px;
       --space: clamp(16px, 2.5vw, 28px);
       --maxw: 980px;
     }
     @media (prefers-color-scheme: dark){
       :root{
-        --bg: #0b1220;
-        --fg: #e2e8f0; /* slate-200 */
-        --muted: #94a3b8; /* slate-400 */
-        --accent: #38bdf8; /* sky-400 */
-        --card: #0f172a; /* slate-900 */
-        --border: #1f2937; /* slate-800 */
+        --bg: #2a1038;
+        --fg: #fce7f3; /* texto claro */
+        --muted: #f9a8d4; /* rosa medio */
+        --accent: #e879f9; /* fucsia */
+        --accent-light: #d8b4fe; /* lila */
+        --card: #3b0a45; /* fondo oscuro púrpura */
+        --border: #a855f7; /* violeta */
       }
     }
     *, *::before, *::after{ box-sizing: border-box; }
@@ -41,43 +43,45 @@
     a:hover{ text-decoration: underline; }
 
     .wrap{ width:100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--space); }
-    header{ position: sticky; top:0; backdrop-filter: saturate(1.2) blur(6px); background: color-mix(in hsl, var(--bg) 80%, transparent); border-bottom: 1px solid var(--border); }
+    header{ position: sticky; top:0; backdrop-filter: saturate(1.2) blur(6px); background: color-mix(in srgb, var(--bg) 90%, transparent); border-bottom: 1px solid var(--border); }
     nav{ display:flex; align-items:center; justify-content: space-between; height: 64px; }
     nav .links{ display:flex; gap: 16px; }
-    nav a{ color: inherit; opacity:.9; }
+    nav a{ color: inherit; opacity:.9; font-weight:500; }
+    nav a:hover{ color: var(--accent); }
     nav a:focus-visible{ outline: 2px solid var(--accent); border-radius: 8px; }
 
     .hero{ padding: calc(var(--space)*2) 0; }
     .hero-grid{ display:grid; grid-template-columns: 1fr; gap: var(--space); align-items:center; }
     @media (min-width: 780px){ .hero-grid{ grid-template-columns: 1.3fr .9fr; } }
 
-    .badge{ display:inline-flex; gap:8px; align-items:center; background: var(--card); border:1px solid var(--border); padding: 6px 10px; border-radius: 999px; font-size: 14px; color: var(--muted); }
+    .badge{ display:inline-flex; gap:8px; align-items:center; background: var(--accent-light); border:1px solid var(--border); padding: 6px 10px; border-radius: 999px; font-size: 14px; color: var(--fg); font-weight:500; }
     .title{ font-size: clamp(28px, 5vw, 44px); line-height: 1.15; margin: 10px 0; }
     .subtitle{ color: var(--muted); font-size: clamp(16px, 2.2vw, 18px); margin: 6px 0 0; }
     .cta{ display:flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding: 10px 14px; border-radius: 12px; border:1px solid var(--border); background: var(--fg); color: var(--bg); font-weight:600; }
-    .btn.secondary{ background: var(--card); color: var(--fg); }
-    .btn:focus-visible{ outline: 3px solid color-mix(in hsl, var(--accent) 60%, transparent); }
+    .btn{ display:inline-flex; align-items:center; gap:10px; padding: 10px 14px; border-radius: 12px; border:1px solid var(--border); background: var(--accent); color: #fff; font-weight:600; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .btn.secondary{ background: var(--card); color: var(--fg); border:1px solid var(--border); }
+    .btn:focus-visible{ outline: 3px solid color-mix(in srgb, var(--accent) 60%, transparent); }
 
-    .avatar{ width: 160px; height:160px; border-radius: 50%; background: linear-gradient(135deg, var(--card), transparent); border: 1px solid var(--border); display:grid; place-items:center; font-weight:700; font-size:48px; color: var(--muted); margin: 0 auto; }
+    .avatar{ width: 160px; height:160px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-light), var(--card)); border: 2px solid var(--border); display:grid; place-items:center; font-weight:700; font-size:48px; color: var(--fg); margin: 0 auto; }
 
     section{ padding: calc(var(--space)*1.6) 0; border-top: 1px solid var(--border); }
-    h2{ font-size: 22px; margin: 0 0 8px; }
+    h2{ font-size: 22px; margin: 0 0 8px; color: var(--fg); }
     p{ margin: 0 0 12px; }
 
     .cards{ display:grid; gap: var(--space); grid-template-columns: 1fr; }
     @media (min-width: 800px){ .cards{ grid-template-columns: repeat(3, 1fr); } }
-    .card{ background: var(--card); border:1px solid var(--border); padding: 16px; border-radius: var(--radius); }
-    .card h3{ margin: 0 0 6px; font-size: 18px; }
+    .card{ background: var(--card); border:1px solid var(--border); padding: 16px; border-radius: var(--radius); transition: transform 0.2s ease; }
+    .card:hover{ transform: translateY(-4px); }
+    .card h3{ margin: 0 0 6px; font-size: 18px; color: var(--fg); }
     .card small{ color: var(--muted); }
 
     .list{ display:grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-    .chip{ border:1px solid var(--border); background: var(--card); padding: 8px 10px; border-radius: 999px; font-size: 14px; text-align:center; }
+    .chip{ border:1px solid var(--border); background: var(--accent-light); padding: 8px 10px; border-radius: 999px; font-size: 14px; text-align:center; color: var(--fg); font-weight:500; }
 
-    .projects .card a{ display:inline-block; margin-top: 10px; }
+    .projects .card a{ display:inline-block; margin-top: 10px; color: var(--accent); }
 
-    footer{ border-top: 1px solid var(--border); padding: 20px 0 40px; color: var(--muted); font-size: 14px; }
-    .social{ display:flex; gap:12px; }
+    footer{ border-top: 1px solid var(--border); padding: 20px 0 40px; color: var(--muted); font-size: 14px; text-align:center; }
+    .social{ display:flex; gap:12px; justify-content:center; margin-top:10px; }
   </style>
 </head>
 <body>
@@ -99,7 +103,7 @@
     <section class="hero" aria-labelledby="presentacion">
       <div class="hero-grid">
         <div>
-          <span class="badge">● Disponible para proyectos</span>
+          <span class="badge">Disponible para proyectos</span>
           <h1 id="presentacion" class="title">Hola, soy Kheyla Condor G. — Estudiante de Ingeniería de Software</h1>
           <p class="subtitle">Desarrolladora web en formación, apasionada por el diseño de interfaces limpias y el desarrollo de aplicaciones útiles para la vida cotidiana.</p>
 
@@ -163,6 +167,7 @@
       <p>¿Tienes una idea o proyecto? Conversemos.</p>
       <p>
         <a class="btn" href="mailto:kheylacg123@gmail.com">Enviar correo</a>
+        <a class="btn secondary" href="./CV_Kheyla.pdf" download>Descargar CV</a>
       </p>
       <div class="social">
         <a href="https://github.com/KheylaCG13">GitHub</a>
@@ -173,7 +178,7 @@
 
   <footer>
     <div class="wrap">
-      <span>© <span id="y"></span> Kheyla Condor G. — Hecho con HTML + CSS.</span>
+      <span>© <span id="y"></span> Kheyla Condor G. — Hecho con amor en HTML + CSS.</span>
     </div>
   </footer>
 
